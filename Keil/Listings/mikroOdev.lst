@@ -1,0 +1,79 @@
+A51 MACRO ASSEMBLER  MIKROODEV                                                            05/25/2021 21:59:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\mikroOdev.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE mikroOdev.asm SET(SMALL) DEBUG PRINT(.\Listings\mikroOdev.lst) OBJECT(.
+                      \Objects\mikroOdev.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     ORG 0000H
+0000 802E              2                     SJMP BASLA
+                       3     
+000B                   4                     ORG 0BH ; timer0 interrupt icin 0BH adresine konumlandirma yapildi
+000B                   5     KESME_T0:
+000B 758C3C            6                     MOV TH0, #3CH   
+000E 758AB0            7                     MOV TL0, #0B0H          
+0011 32                8                     RETI
+                       9     
+0030                  10                     ORG 0030H       ; BASLA nin baslangic adresi
+0030                  11     BASLA:
+0030 20901A           12             JB P1.0, DURDUR ; butona basilmazsa ekranda hicbir sey olmayacak
+                      13             
+0033 758901           14             MOV TMOD, #01H  ; timer0 mod1 ayarlandi
+0036 758C3C           15             MOV TH0, #3CH   ; yuksek byte atama  
+0039 758AB0           16             MOV TL0, #0B0H  ; dusuk byte atama              
+003C D2A0             17             SETB P2.0       ; p2.0 a bagli led icin bit birlendi
+003E 75A882           18             MOV IE, #82H    ; kesme icin yetkilendirme yapildi
+0041 D28C             19             SETB TR0                ; sayma baslatildi
+0043 1152             20             ACALL BEKLEDONGU 
+0045 C2A0             21             CLR P2.0        ; ilk led sonduruldu
+0047 D2A1             22             SETB P2.1       ; p2.1 e bagli led icin bit birlendi
+0049 1152             23             ACALL BEKLEDONGU        
+004B C2A1             24             CLR P2.1        ; ikinci led sonduruldu
+                      25             
+004D                  26     DURDUR:
+004D 75A000           27             MOV P2, #00H    
+0050 80DE             28             SJMP BASLA
+                      29     
+0052                  30     BEKLEDONGU:
+0052 7A11             31             MOV R2,#17      ; 1 saniye saymasi icin  17 kez tekrarlanmasi gerekiyor
+0054 115B             32             BIRSANIYEDUR: ACALL BEKLE  
+0056 2090F4           33             JB P1.0, DURDUR ; buton birakilirsa ledi aninda kesmek icin
+0059 DAF9             34             DJNZ R2, BIRSANIYEDUR   ; her adimda r2nin degeri 1 azaltiliyor
+                      35             
+005B                  36     BEKLE: 
+005B 308DFD           37             JNB TF0, BEKLE ; tasma olana kadar bekleniyor
+005E C28D             38             CLR TF0 ; tasma bayragi sifirlaniyor
+                      39                     
+0060 22               40     RET
+                      41     END
+A51 MACRO ASSEMBLER  MIKROODEV                                                            05/25/2021 21:59:49 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BASLA. . . . . . .  C ADDR   0030H   A   
+BEKLE. . . . . . .  C ADDR   005BH   A   
+BEKLEDONGU . . . .  C ADDR   0052H   A   
+BIRSANIYEDUR . . .  C ADDR   0054H   A   
+DURDUR . . . . . .  C ADDR   004DH   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+KESME_T0 . . . . .  C ADDR   000BH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

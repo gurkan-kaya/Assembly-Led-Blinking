@@ -1,0 +1,3 @@
+".\Objects\mikroOdev.obj" 
+TO ".\Objects\mikroOdev" 
+PRINT(".\Listings\mikroOdev.m51") RAMSIZE(256) 

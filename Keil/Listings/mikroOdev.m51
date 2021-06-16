@@ -1,0 +1,82 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/25/2021  21:59:49  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\mikroOdev.obj TO .\Objects\mikroOdev PRINT (.\Listings\mikroOdev.m51) RAMSIZE (256
+>> )
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\mikroOdev.obj (MIKROODEV)
+
+
+LINK MAP OF MODULE:  .\Objects\mikroOdev (MIKROODEV)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0061H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\mikroOdev (MIKROODEV)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MIKROODEV
+  C:0030H         SYMBOL        BASLA
+  C:005BH         SYMBOL        BEKLE
+  C:0052H         SYMBOL        BEKLEDONGU
+  C:0054H         SYMBOL        BIRSANIYEDUR
+  C:004DH         SYMBOL        DURDUR
+  D:00A8H         SYMBOL        IE
+  C:000BH         SYMBOL        KESME_T0
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  B:0088H.5       SYMBOL        TF0
+  D:008CH         SYMBOL        TH0
+  D:008AH         SYMBOL        TL0
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  C:0000H         LINE#         2
+  C:000BH         LINE#         6
+  C:000EH         LINE#         7
+  C:0011H         LINE#         8
+  C:0030H         LINE#         12
+  C:0033H         LINE#         14
+  C:0036H         LINE#         15
+  C:0039H         LINE#         16
+  C:003CH         LINE#         17
+  C:003EH         LINE#         18
+  C:0041H         LINE#         19
+  C:0043H         LINE#         20
+  C:0045H         LINE#         21
+  C:0047H         LINE#         22
+  C:0049H         LINE#         23
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/25/2021  21:59:49  PAGE 2
+
+
+  C:004BH         LINE#         24
+  C:004DH         LINE#         27
+  C:0050H         LINE#         28
+  C:0052H         LINE#         31
+  C:0054H         LINE#         32
+  C:0056H         LINE#         33
+  C:0059H         LINE#         34
+  C:005BH         LINE#         37
+  C:005EH         LINE#         38
+  C:0060H         LINE#         40
+  -------         ENDMOD        MIKROODEV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 003AH BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=97
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
